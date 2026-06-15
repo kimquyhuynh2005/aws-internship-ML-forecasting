@@ -216,3 +216,42 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# AWS credentials
+.env
+
+# Data files
+*.csv
+*.parquet
+
+# Model artifacts
+*.tar.gz
+*.pkl
+*.joblib
+*.pt
+
+# SageMaker
+.sagemaker/
+checkpoints/
+
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Virtual Environment
+venv/
+env/
+
+# Data & Models (Sẽ được lưu trên Amazon S3, không lưu trên Git)
+data/
+models/
+*.csv
+*.parquet
+*.pkl
+*.pth
+*.pt
+
+# AWS & Secrets
+.aws/
+.env
