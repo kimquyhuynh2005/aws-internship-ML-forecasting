@@ -22,5 +22,7 @@ seaborn>=0.12.0
 # Notebook
 jupyterlab>=3.6.0
 
+# AWS Login
+botocore[crt]
 
 #run: pip install -r requirements.txt

@@ -1,6 +1,5 @@
 # verify_setup.py — chạy để confirm môi trường hoạt động
 import boto3
-import sagemaker
 from config import AWS_REGION, S3_BUCKET, ROLE_ARN
 
 def verify():
@@ -35,10 +34,11 @@ def verify():
     except Exception as e:
         print(f"❌ IAM Role lỗi: {e}")
 
-    # 4. Kiểm tra SageMaker session
+    # 4. Kiểm tra SageMaker API
     try:
-        session = sagemaker.Session()
-        print(f"✅ SageMaker:   session OK — region {session.boto_region_name}")
+        sm = boto3.client("sagemaker", region_name=AWS_REGION)
+        sm.list_notebook_instances(MaxResults=1)
+        print(f"✅ SageMaker:   API OK — region {AWS_REGION}")
     except Exception as e:
         print(f"❌ SageMaker lỗi: {e}")
 
